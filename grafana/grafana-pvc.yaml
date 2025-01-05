@@ -10,4 +10,4 @@ spec:
     requests:
       storage: 10Gi
   volumeMode: Filesystem
-  storageClassName: nfs
+  storageClassName: nfs-grafana-class
