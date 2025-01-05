@@ -1,1 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+  labels:
+    app: prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      containers:
+        - name: prometheus
+          image: prom/prometheus:v2.30.3
+          args:
+            - "--config.file=/etc/prometheus/prometheus.yml"
+            - "--storage.tsdb.path=/prometheus"
+            - "--web.listen-address=:9090"
+            - "--web.external-url=/"
+            - "--web.route-prefix=/"
+          ports:
+            - containerPort: 9090
+          volumeMounts:
+            - mountPath: /etc/prometheus
+              name: config-volume
+              readOnly: true
+            - mountPath: /prometheus
+              name: prometheus-data
+      volumes:
+        - name: config-volume
+          configMap:
+            name: prometheus-config
+        - name: prometheus-data
+          persistentVolumeClaim:
+            claimName: prometheus-pvc
 
