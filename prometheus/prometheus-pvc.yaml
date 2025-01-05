@@ -10,4 +10,4 @@ spec:
     requests:
       storage: 10Gi
   volumeMode: Filesystem
-  storageClassName:  nfs-monitoring-class
+  storageClassName:  nfs-prometheus-class
