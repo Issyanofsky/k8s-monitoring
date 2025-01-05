@@ -1,1 +1,9 @@
-
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-grafana-class
+  namespace: monitoring
+provisioner: cluster.local/nfs
+parameters:
+  server: 192.168.1.165 #  NFS server address
+  path: /data/grafana
