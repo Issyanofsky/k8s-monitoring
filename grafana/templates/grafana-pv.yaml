@@ -1,13 +1,16 @@
 apiVersion: v1
-kind: PersistentVolumeClaim
+kind: PersistentVolume
 metadata:
-  name: grafana-pvc
+  name: nfs-grafana-pv
   namespace: monitoring
 spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 10Gi
+  capacity:
+    storage: {{ .Values.grafana.persistence.size }}
   volumeMode: Filesystem
-  storageClassName:  nfs-grafana-class
+  accessModes:
+    - ReadWriteMany  # NFS supports ReadWriteMany access mode
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: nfs-grafana-class
+  nfs:
+    path: /data/grafana  # The NFS directory for Nginx
+    server:  192.168.1.165  #  NFS server address
