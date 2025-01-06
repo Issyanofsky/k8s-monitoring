@@ -2,4 +2,4 @@
 install Prometheous and Grafana
 
 
-The Grafana relay on the StorageClass (NFS) that is created in the proetheus folder.
+ingress yaml are bak (not deploying) because i add the setting into a Application running on Argo-cd.
