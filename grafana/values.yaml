@@ -9,7 +9,7 @@ grafana:
     repository: grafana/grafana
     tag: 8.2.5
   env:
-    GF_SERVER_ROOT_URL: "https://issy.site/grafana"  # Make Grafana aware of the base path
+    GF_SERVER_ROOT_URL: "https://grafana.issy.site"  # Make Grafana aware of the base path
     GF_SERVER_SERVE_FROM_SUB_PATH: "true"  # Enable Grafana to serve content from a subpath like /grafana
   service:
     type: ClusterIP
