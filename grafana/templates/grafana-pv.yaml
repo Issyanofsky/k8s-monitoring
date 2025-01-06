@@ -8,7 +8,7 @@ spec:
     storage: {{ .Values.grafana.persistence.size }}
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteMany  # NFS supports ReadWriteMany access mode
+    - {{ .Values.grafana.persistence.accessmode }}  # NFS supports ReadWriteMany access mode
   persistentVolumeReclaimPolicy: Retain
   storageClassName: nfs-grafana-class
   nfs:
