@@ -7,7 +7,8 @@ metadata:
     app: grafana
 spec:
   ports:
-    - port: 3000
-      targetPort: 3000
+    - port: {{ .Values.grafana.service.port }}
+      targetPort: {{ .Values.grafana.service.port }}
   selector:
     app: grafana
+  type: {{ .Values.grafana.service.type }}
