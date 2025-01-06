@@ -23,5 +23,5 @@ spec:
               service:
                 name: prometheus
                 port:
-                  number: 9090
+                  number: {{ .Values.prometheus.service.port }}
 
