@@ -7,7 +7,7 @@ prometheus:
   image:
     repository: prom/prometheus
     tag: v2.30.3
-    externalurl: "https://issy.site/prometheus" # Web external URL to log
+    externalurl: "https://issy.site" # we add on deploy  "/promethues" to the domain name
   storage:
     size: 10Gi
     nfsserver: 192.168.1.165 # NFS server address
