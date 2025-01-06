@@ -5,9 +5,12 @@ metadata:
   namespace: monitoring
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/secure-backends: "false"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   rules:
-    - host: grafana.yourdomain.com
+    - host: grafana.{{ .Values.grafana.domainname }}
       http:
         paths:
           - path: /
