@@ -24,7 +24,7 @@ spec:
             - "--storage.tsdb.path=/prometheus"
             - "--web.listen-address=:9090"
            #  - "--web.external-url=/prometheus"
-            - "--web.route-prefix=/"
+            - "--web.route-prefix=/prometheus"
           ports:
             - containerPort: {{ .Values.prometheus.service.port }}
           volumeMounts:
