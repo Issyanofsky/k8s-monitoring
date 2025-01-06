@@ -13,3 +13,6 @@ grafana:
   persistence:
     enabled: true
     size: 10Gi
+    nfsserver: 192.168.1.165 # NFS server address
+    nfspath: "/data/grafana"
+    accessmode: "ReadWriteMany"
