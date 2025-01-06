@@ -8,7 +8,7 @@ spec:
     storage: {{ .Values.prometheus.storage.size }}
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteMany  # NFS supports ReadWriteMany access mode
+    - {{ .Values.prometheus.storage.accessmode }}  # NFS supports ReadWriteMany access mode
   persistentVolumeReclaimPolicy: Retain
   storageClassName: nfs-prometheus-class
   nfs:
