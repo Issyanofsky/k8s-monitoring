@@ -4,14 +4,12 @@ metadata:
   # Name of the custom role
   name: prometheus-role
 rules:
-  # Allowing Prometheus to list nodes (this was mentioned in your logs)
   - apiGroups: [""]
     resources: ["nodes"]
-    verbs: ["list", "watch"]
-
-  # Allowing Prometheus to access pod and service information
+    verbs: ["list", "watch", "get"]
   - apiGroups: [""]
     resources: ["pods", "services"]
-    verbs: ["list", "watch"]
-
-  # Additional permissions can be added here
+    verbs: ["list", "watch", "get"]
+  - apiGroups: ["apps"]
+    resources: ["deployments"]
+    verbs: ["list", "watch", "get"]
