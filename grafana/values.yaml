@@ -7,6 +7,8 @@ grafana:
   image:
     repository: grafana/grafana
     tag: 8.2.5
+  env:
+    GF_SERVER_ROOT_URL: '%(protocol)s://%issy.site/grafana'
   service:
     type: ClusterIP
     port: 3000
