@@ -5,5 +5,5 @@ metadata:
   namespace: monitoring
 provisioner: cluster.local/nfs
 parameters:
-  server: 192.168.1.165 #  NFS server address
-  path: /data/prometheus
+  server: {{ .Values.prometheus.storage.nfsserver }} #  NFS server address
+  path: {{ .Values.prometheus.storage.nfspath }}
