@@ -6,7 +6,7 @@ metadata:
   labels:
     app: grafana
 spec:
-  replicas: 1
+  replicas: {{ .Values.grafana.replicaCount }}
   selector:
     matchLabels:
       app: grafana
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: grafana
-          image: grafana/grafana:8.0.0
+          image: {{ .Values.grafana.image.repository }}:{{ .Values.grafana.image.tag }}
           ports:
             - containerPort: 3000
           env:
