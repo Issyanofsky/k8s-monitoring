@@ -11,7 +11,7 @@ metadata:
 spec:
   tls:
     - hosts:
-        - prometheus{{ .Values.prometheus.image.domainname }}  # Your Prometheus domain
+        - prometheus.{{ .Values.prometheus.image.domainname }}  # Your Prometheus domain
       secretName: nginx-tls-secret
   rules:
     - host: prometheus.{{ .Values.prometheus.image.domainname }}
