@@ -7,11 +7,11 @@ rules:
   # Allowing Prometheus to list nodes (this was mentioned in your logs)
   - apiGroups: [""]
     resources: ["nodes"]
-    verbs: ["list", "get"]
+    verbs: ["list", "watch"]
 
   # Allowing Prometheus to access pod and service information
   - apiGroups: [""]
     resources: ["pods", "services"]
-    verbs: ["list", "get"]
+    verbs: ["list", "watch"]
 
   # Additional permissions can be added here
