@@ -8,6 +8,6 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi
+      storage: {{ .Values.grafana.persistence.size }}
   volumeMode: Filesystem
   storageClassName: nfs-grafana-class
