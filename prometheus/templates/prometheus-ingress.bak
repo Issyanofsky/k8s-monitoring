@@ -5,9 +5,16 @@ metadata:
   namespace: monitoring
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/secure-backends: "false"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
+  tls:
+    - hosts:
+        - prometheus.example.com  # Your Prometheus domain
+      secretName: nginx-tls-secret
   rules:
-    - host: prometheus.yourdomain.com
+    - host: prometheus.{{ .Values.prometheus.domainname }}
       http:
         paths:
           - path: /
