@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  # Name of the custom role
+  name: prometheus-role
+rules:
+  # Allowing Prometheus to list nodes (this was mentioned in your logs)
+  - apiGroups: [""]
+    resources: ["nodes"]
+    verbs: ["list", "get"]
+
+  # Allowing Prometheus to access pod and service information
+  - apiGroups: [""]
+    resources: ["pods", "services"]
+    verbs: ["list", "get"]
+
+  # Additional permissions can be added here
