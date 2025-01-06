@@ -5,7 +5,7 @@ metadata:
   namespace: monitoring
 spec:
   accessModes:
-    - ReadWriteMany
+    - {{ .Values.grafana.persistence.accessmode }}
   resources:
     requests:
       storage: {{ .Values.grafana.persistence.size }}
