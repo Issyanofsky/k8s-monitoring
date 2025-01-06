@@ -8,6 +8,6 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi
+      storage: {{ .Values.prometheus.storage.size }}
   volumeMode: Filesystem
   storageClassName:  nfs-prometheus-class
