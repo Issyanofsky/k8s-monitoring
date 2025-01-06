@@ -7,8 +7,9 @@ metadata:
     app: prometheus
 spec:
   ports:
-    - port: 9090
-      targetPort: 9090
+    - port: {{ .Values.prometheus.service.port }}
+      targetPort: {{ .Values.prometheus.service.port }}
   selector:
     app: prometheus
+  type: {{ .Values.prometheus.service.type }}
 
