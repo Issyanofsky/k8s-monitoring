@@ -12,5 +12,5 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: nfs-grafana-class
   nfs:
-    path: /data/grafana  # The NFS directory for Nginx
-    server:  192.168.1.165  #  NFS server address
+    path: {{ .Values.grafana.persistence.nfspath }}  # The NFS directory for Nginx
+    server:  {{ .Values.grafana.persistence.nfsserver }}  #  NFS server address
