@@ -13,6 +13,7 @@ spec:
       - hosts:
           - grafana.{{ .Values.grafana.domainname }} # Prometheus domain
         secretName: nginx-tls-secret
+  ingressClassName: nginx
   rules:
     - host: grafana.{{ .Values.grafana.domainname }}
       http:
