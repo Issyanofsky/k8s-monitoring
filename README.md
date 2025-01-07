@@ -11,7 +11,7 @@ locallog to Grafana:
 
  locallog to Prometheus:
 
-          kubectl port-forward svc/prometheus-sevice -n monitoring 9090:9090
+          kubectl port-forward svc/prometheus-service -n monitoring 9090:9090
           http://localhost:9090
 
 
