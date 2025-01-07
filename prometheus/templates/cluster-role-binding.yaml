@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: prometheus-clusterrolebinding 
+subjects:
+- kind: ServiceAccount
+  name: prometheus-sa  # Ensure it matches the service account name
+  namespace: monitoring
+roleRef:
+  kind: ClusterRole
+  name: prometheus-role  # Ensure it matches the role name
+  apiGroup: rbac.authorization.k8s.io
