@@ -1,9 +1,18 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   namespace: monitoring  
   name: prometheus-role
 rules:
 - apiGroups: [""]
-  resources: ["pods", "nodes", "services", "endpoints"]
+  resources: ["pods", "nodes", "services", "endpoints", "namespaces", "persistentvolumes"]
   verbs: ["get", "list", "watch"]
+- apiGroups: ["networking.k8s.io"]
+  resources: ["ingresses"]
+  verbs: ["list", "watch"]
+- apiGroups: ["batch"]
+  resources: ["jobs"]
+  verbs: ["list", "watch"]
+- apiGroups: ["certificates.k8s.io"]
+  resources: ["certificatesigningrequests"]
+  verbs: ["list", "watch"]
