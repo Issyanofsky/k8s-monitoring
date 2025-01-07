@@ -21,7 +21,8 @@ for https:
 
 install Prometheus Operator (CRDs):
 
-     kubectl apply -f https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.53.1/prometheus-operator-crd.yaml
+     kubectl apply -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/bundle.yaml
+
 
 varify installation:
 
