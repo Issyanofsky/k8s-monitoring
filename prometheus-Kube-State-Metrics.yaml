@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: kube-state-metrics
-          image:  quay.io/prometheus-operator/kube-state-metrics:latest
+          image:  quay.io/coreos/kube-state-metrics:v2.0.0-rc.0
           ports:
             - containerPort: 8080
               name: metrics
