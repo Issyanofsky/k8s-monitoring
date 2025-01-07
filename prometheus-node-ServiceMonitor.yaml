@@ -10,5 +10,5 @@ spec:
     matchLabels:
       k8s-app: node-exporter
   endpoints:
-    - port: 9100
+    - port: "9100"
       interval: 30s
