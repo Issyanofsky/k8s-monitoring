@@ -4,6 +4,7 @@
 
 grafana:
   replicaCount: 1
+  domainname: "issy.site"
   image:
     repository: grafana/grafana
     tag: 8.2.5
@@ -16,3 +17,4 @@ grafana:
     nfsserver: 192.168.1.165 # NFS server address
     nfspath: "/data/grafana"
     accessmode: "ReadWriteMany"
+
