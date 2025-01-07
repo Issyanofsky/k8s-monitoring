@@ -12,7 +12,7 @@ spec:
   tls:
     - hosts:
         - prometheus.{{ .Values.prometheus.image.domainname }}  # Your Prometheus domain
-      secretName: nginx-tls-secret
+      secretName: nginx-tls-secret-monitoring
   ingressClassName: nginx
   rules:
     - host: prometheus.{{ .Values.prometheus.image.domainname }}
