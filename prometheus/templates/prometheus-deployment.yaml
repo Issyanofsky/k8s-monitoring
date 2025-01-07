@@ -23,8 +23,8 @@ spec:
             - "--config.file=/etc/prometheus/prometheus.yml"
             - "--storage.tsdb.path=/prometheus"
             - "--web.listen-address=:9090"
-            - "--web.external-url={{ .Values.prometheus.image.externalurl }}"
-            - "--web.route-prefix=/"
+            - "--web.external-url=http://{{ .Values.prometheus.domainname }}/prometheus"
+            - "--web.route-prefix=/prometheus"
           ports:
             - containerPort: {{ .Values.prometheus.service.port }}
           volumeMounts:

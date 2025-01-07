@@ -1,13 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: grafana
+  name: grafana-ingress
   namespace: monitoring
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/secure-backends: "false"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
+  tls:
+      - hosts:
+          - grafana.{{ .Values.grafana.domainname }} # Prometheus domain
+        secretName: nginx-tls-secret-monitoring
+  ingressClassName: nginx
   rules:
-    - host: grafana.yourdomain.com
+    - host: grafana.{{ .Values.grafana.domainname }}
       http:
         paths:
           - path: /
@@ -16,4 +24,4 @@ spec:
               service:
                 name: grafana
                 port:
-                  number: 3000
+                  number: {{ .Values.grafana.service.port }}
