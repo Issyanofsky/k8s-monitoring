@@ -16,4 +16,5 @@ locallog to Grafana:
 
 
 for https:
-     certificate.yaml (under grafana). create a Certificate using clusterIssuer (existed in the cluster) 
+     certificate.yaml (under grafana). create a Certificate using clusterIssuer (existed in the cluster). that's because a secret (with the certificate) 
+     cant be read from othe namespace.
