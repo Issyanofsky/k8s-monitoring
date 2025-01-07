@@ -2,7 +2,7 @@
 install Prometheous and Grafana
 
 
-ingress yaml are bak (not deploying) because i add the setting into a Application running on Argo-cd.
+
 
 locallog to Grafana:
 
@@ -28,3 +28,5 @@ varify installation:
 
      kubectl get crds | grep servicemonitor
 
+ingress:
+     there are ingress roles set to enter to Prometheus and Grafana by HTTPS.
