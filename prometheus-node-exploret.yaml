@@ -8,12 +8,17 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: node-exporter
+      k8s-app: node-exporter
   template:
     metadata:
       labels:
-        app: node-exporter
+        k8s-app: node-exporter
     spec:
+      serviceAccountName: prometheus-sa
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"  # This allows the pod to be scheduled on the control plane node
       containers:
         - name: node-exporter
           image: prom/node-exporter:v1.3.1
