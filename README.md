@@ -18,3 +18,12 @@ locallog to Grafana:
 for https:
      certificate.yaml (under grafana). create a Certificate using clusterIssuer (existed in the cluster). that's because a secret (with the certificate) 
      cant be read from othe namespace.
+
+install Prometheus Operator (CRDs):
+
+     kubectl apply -f https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.53.1/prometheus-operator-crd.yaml
+
+varify installation:
+
+     kubectl get crds | grep servicemonitor
+
