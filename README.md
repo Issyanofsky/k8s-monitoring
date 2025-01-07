@@ -13,3 +13,7 @@ locallog to Grafana:
 
           kubectl port-forward svc/prometheus -n monitoring 9090:9090
           http://localhost:9090
+
+
+for https:
+     certificate.yaml (under grafana). create a Certificate using clusterIssuer (existed in the cluster) 
