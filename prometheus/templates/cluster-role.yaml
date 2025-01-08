@@ -12,10 +12,10 @@ rules:
   verbs: ["get", "list", "watch"]
 - apiGroups: ["batch"]
   resources: ["jobs"]
-  verbs: ["list", "watch"]
+  verbs: ["get", "list", "watch"]
 - apiGroups: ["certificates.k8s.io"]
   resources: ["certificatesigningrequests"]
-  verbs: ["list", "watch"]
+  verbs: ["get", "list", "watch"]
 - apiGroups: ["apps"]
   resources: ["deployments", "statefulsets", "replicasets", "daemonsets"]
   verbs: ["get", "list", "watch"]
@@ -23,17 +23,17 @@ rules:
   resources:
     - storageclasses
     - volumeattachments
-  verbs: ["get", "list"]
+  verbs: ["get", "list", "watch"]
 - apiGroups: ["coordination.k8s.io"]
   resources:
     - leases
-  verbs: ["get", "list"]
+  verbs: ["get", "list", "watch"]
 - apiGroups: ["admissionregistration.k8s.io"]
   resources:
     - mutatingwebhookconfigurations
     - validatingwebhookconfigurations
-  verbs: ["get", "list"]
+  verbs: ["get", "list", "watch"]
 - apiGroups: ["autoscaling"]
   resources:
     - horizontalpodautoscalers
-  verbs: ["get", "list"]
+  verbs: ["get", "list", "watch"]
