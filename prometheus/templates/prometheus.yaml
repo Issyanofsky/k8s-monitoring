@@ -7,7 +7,7 @@ spec:
   serviceAccountName: prometheus
   serviceMonitorSelector:
     matchLabels:
-      release: prometheus  # Ensure this label matches the ServiceMonitor
+      release: node-exporter  # Ensure this label matches the ServiceMonitor
   resources:
     requests:
       memory: 400Mi
