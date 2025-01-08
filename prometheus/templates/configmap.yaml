@@ -82,6 +82,5 @@ data:
             target_label: instance
         metrics_path: /metrics
         scheme: http
-        static_configs:
-          - targets: ['<node-ip>:9100']
+       
   
