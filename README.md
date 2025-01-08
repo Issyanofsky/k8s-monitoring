@@ -14,6 +14,14 @@ install Prometheous and Grafana
           kubectl port-forward svc/prometheus-service -n monitoring 9090:9090
           http://localhost:9090
 
+     installing Prometheus Operator:
+          not done with the yamls (autonatically) i had to run it manualy:
+
+          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+          helm repo update
+
+          helm install prometheus-operator prometheus-community/kube-prometheus-stack
+
 
 # for https:
      certificate.yaml (under grafana). create a Certificate using clusterIssuer (existed in the cluster). that's because a secret (with the certificate) 
