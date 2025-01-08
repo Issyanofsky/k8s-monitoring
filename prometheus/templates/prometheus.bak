@@ -4,7 +4,7 @@ metadata:
   name: prometheus
   namespace: monitoring
 spec:
-  serviceAccountName: prometheus
+  serviceAccountName: prometheus-sa
   serviceMonitorSelector:
     matchLabels:
       release: node-exporter  # Ensure this label matches the ServiceMonitor
