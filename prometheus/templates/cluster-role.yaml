@@ -5,10 +5,10 @@ metadata:
   name: prometheus-role
 rules:
 - apiGroups: [""]
-  resources: ["pods", "nodes", "services", "endpoints", "namespaces", "persistentvolumes"]
+  resources: ["pods", "nodes", "services", "endpoints", "namespaces", "persistentvolumes", "configmaps", "secrets", "replicationcontrollers", "resourcequotas", "limitranges"]
   verbs: ["get", "list", "watch"]
 - apiGroups: ["networking.k8s.io"]
-  resources: ["ingresses"]
+  resources: ["ingresses", "networkpolicies"]
   verbs: ["get", "list", "watch"]
 - apiGroups: ["batch"]
   resources: ["jobs"]
@@ -17,5 +17,23 @@ rules:
   resources: ["certificatesigningrequests"]
   verbs: ["list", "watch"]
 - apiGroups: ["apps"]
-  resources: ["deployments"]
-  verbs: ["list", "watch"]
+  resources: ["deployments", "statefulsets", "replicasets", "daemonsets"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["storage.k8s.io"]
+  resources:
+    - storageclasses
+    - volumeattachments
+  verbs: ["get", "list"]
+- apiGroups: ["coordination.k8s.io"]
+  resources:
+    - leases
+  verbs: ["get", "list"]
+- apiGroups: ["admissionregistration.k8s.io"]
+  resources:
+    - mutatingwebhookconfigurations
+    - validatingwebhookconfigurations
+  verbs: ["get", "list"]
+- apiGroups: ["autoscaling"]
+  resources:
+    - horizontalpodautoscalers
+  verbs: ["get", "list"]
