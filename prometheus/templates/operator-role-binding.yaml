@@ -8,6 +8,6 @@ subjects:
     name: prometheus-operator
     namespace: monitoring
 roleRef:
-  kind: Role
+  kind: ClusterRole
   name: prometheus-operator
   apiGroup: rbac.authorization.k8s.io
