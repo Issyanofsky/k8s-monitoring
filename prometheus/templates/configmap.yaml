@@ -82,5 +82,17 @@ data:
             target_label: instance
         metrics_path: /metrics
         scheme: http
+      - job_name: 'kubelet'
+        kubernetes_sd_configs:
+          - role: node
+        scheme: https
+        tls_config:
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+        metrics_path: /metrics/cadvisor
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_node_name]
+            target_label: instance
+
        
   
