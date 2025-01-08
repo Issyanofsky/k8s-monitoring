@@ -5,8 +5,35 @@ metadata:
   name: prometheus-operator
 rules:
   - apiGroups: [""]
-    resources: ["pods", "services", "endpoints", "configmaps", "secrets"]
-    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
-  - apiGroups: ["monitoring.coreos.com"]
-    resources: ["prometheuses", "servicemonitors", "podmonitors", "alertmanagers"]
-    verbs: ["get", "list", "watch", "create", "update", "delete"]
+    resources: ["pods", "nodes", "nodes/proxy", "nodes/metrics", "services", "endpoints", "namespaces", "persistentvolumes", "configmaps", "secrets", "replicationcontrollers", "resourcequotas", "limitranges"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["networking.k8s.io"]
+    resources: ["ingresses", "networkpolicies"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["batch"]
+    resources: ["jobs", "cronjobs"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["certificates.k8s.io"]
+    resources: ["certificatesigningrequests"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources: ["deployments", "statefulsets", "replicasets", "daemonsets"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["storage.k8s.io"]
+    resources:
+      - storageclasses
+      - volumeattachments
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["coordination.k8s.io"]
+    resources:
+      - leases
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["admissionregistration.k8s.io"]
+    resources:
+      - mutatingwebhookconfigurations
+      - validatingwebhookconfigurations
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["autoscaling"]
+    resources:
+      - horizontalpodautoscalers
+    verbs: ["get", "list", "watch"]
