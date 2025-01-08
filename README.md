@@ -5,11 +5,13 @@ install Prometheous and Grafana
 
 
 # locallog to Grafana:
+the helm for Grafana is in folder "grafana".
 
      kubectl port-forward svc/grafana -n monitoring 3000:3000
      http://localhost:3000
 
  # locallog to Prometheus:
+ the helm for Promrtheus is in folder "prometheus-ol1".
 
           kubectl port-forward svc/prometheus-service -n monitoring 9090:9090
           http://localhost:9090
