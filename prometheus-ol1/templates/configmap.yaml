@@ -16,7 +16,7 @@ data:
             context: node
           annotations:
             summary: High load on node
-#            description: "Node {{ $labels.instance }} has more than 90% CPU load"
+            description: "Node {{ $labels.instance }} has more than 90% CPU load"
         - alert: KubernetesNodeDiskUsagePercentage
           expr: (100 - 100 * sum(node_filesystem_avail_bytes{device!~"tmpfs|by-uuid",fstype=~"xfs|ext"} / node_filesystem_size_bytes{device!~"tmpfs|by-uuid",fstype=~"xfs|ext"}) BY (instance,device)) > 85
           for: 5m
@@ -33,7 +33,7 @@ data:
             context: node
           annotations:
             description: More than 3 OOM killed pods on a node within 24h
-#            summary: More than 3 OOM killed pods on node {{ $labels.instance }} within 24h
+            summary: More than 3 OOM killed pods on node {{ $labels.instance }} within 24h
     prometheus.yml: |-
       global:
         evaluation_interval: 60s
