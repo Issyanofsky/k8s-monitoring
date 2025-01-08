@@ -33,18 +33,3 @@ spec:
           operator: "Exists"
           effect: "NoSchedule"  # This allows the pod to be scheduled on the control plane node
 
----
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  name: node-exporter
-  namespace: monitoring
-  labels:
-    release: prometheus
-spec:
-  selector:
-    matchLabels:
-      k8s-app: node-exporter
-  endpoints:
-    - port: "9100"
-      interval: 30s
