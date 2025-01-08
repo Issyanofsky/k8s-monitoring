@@ -17,6 +17,9 @@ install Prometheous and Grafana
      installing Prometheus Operator:
           not done with the yamls (autonatically) i had to run it manualy:
 
+          kubectl create -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml
+          
+
           helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
           helm repo update
 
