@@ -74,7 +74,7 @@ data:
           - source_labels: [__meta_kubernetes_node_name]
             target_label: instance
         metrics_path: /metrics
-        scheme: https
+        scheme: http
       - job_name: 'kubelet'
         kubernetes_sd_configs:
           - role: node
