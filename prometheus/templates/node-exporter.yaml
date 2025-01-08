@@ -4,7 +4,7 @@ metadata:
   name: node-exporter
   namespace: monitoring
   labels:
-    app: node-exporter
+    k8s-app: node-exporter
 spec:
   selector:
     matchLabels:
