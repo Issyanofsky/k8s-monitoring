@@ -10,6 +10,11 @@ the helm for Grafana is in folder "grafana".
      kubectl port-forward svc/grafana -n monitoring 3000:3000
      http://localhost:3000
 
+setting Prometheus Data Source in Grafana:
+     since the loging to Prometheus is open to HTTPS (outside). on adding Prometheus Data source the setting is:
+     - URL - set this URL in the URL field http://prometheus-service.monitoring.svc.cluster.local:9090 
+     - GET - set HTTP Method set to "GET".
+
  # locallog to Prometheus:
  the helm for Promrtheus is in folder "prometheus-ol1".
 
@@ -21,12 +26,7 @@ the helm for Grafana is in folder "grafana".
 
           kubectl create -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml
           
-
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo update
-
-          helm install prometheus-operator prometheus-community/kube-prometheus-stack
-
+          
 
 # for https:
      certificate.yaml (under grafana). create a Certificate using clusterIssuer (existed in the cluster). that's because a secret (with the certificate) 
