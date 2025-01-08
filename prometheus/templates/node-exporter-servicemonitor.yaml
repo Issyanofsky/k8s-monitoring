@@ -10,5 +10,7 @@ spec:
     matchLabels:
       k8s-app: node-exporter
   endpoints:
-    - port: "9100"
-      interval: 30s
+    - port: "9100"  # This should match the port exposed by node-exporter
+      interval: 30s  # Scraping interval
+      scheme: http   # Default scheme for scraping metrics
+      path: /metrics # Path for metrics (default for node-exporter)
