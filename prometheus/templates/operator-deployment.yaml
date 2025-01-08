@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-operator
+  namespace: monitoring
+  labels:
+    app: prometheus-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-operator
+  template:
+    metadata:
+      labels:
+        app: prometheus-operator
+    spec:
+      serviceAccountName: prometheus-operator
+      containers:
+        - name: prometheus-operator
+          image: quay.io/prometheus-operator/prometheus-operator:v0.79.2
+          ports:
+            - containerPort: 8080
+          args:
+            - --kubelet-service=kube-system/kubelet
+            - --prometheus-config-reloader=quay.io/prometheus-operator/prometheus-config-reloader:v0.79.2
+            - --kubelet-endpoints=true
+            - --kubelet-endpointslice=false
