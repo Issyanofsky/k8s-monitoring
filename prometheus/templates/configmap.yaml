@@ -74,3 +74,14 @@ data:
             action: keep
           - source_labels: [__meta_kubernetes_pod_container_name]
             target_label: job
+      - job_name: 'node-exporter'
+        kubernetes_sd_configs:
+          - role: node
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_node_name]
+            target_label: instance
+        metrics_path: /metrics
+        scheme: http
+        static_configs:
+          - targets: ['<node-ip>:9100']
+  
