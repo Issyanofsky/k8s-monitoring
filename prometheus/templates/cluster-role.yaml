@@ -5,7 +5,7 @@ metadata:
   name: prometheus-role
 rules:
   - apiGroups: [""]
-    resources: ["pods", "nodes", "services", "endpoints", "namespaces", "persistentvolumes", "configmaps", "secrets", "replicationcontrollers", "resourcequotas", "limitranges"]
+    resources: ["pods", "nodes", "nodes/proxy", "nodes/metrics", "services", "endpoints", "namespaces", "persistentvolumes", "configmaps", "secrets", "replicationcontrollers", "resourcequotas", "limitranges"]
     verbs: ["get", "list", "watch"]
   - apiGroups: ["networking.k8s.io"]
     resources: ["ingresses", "networkpolicies"]
