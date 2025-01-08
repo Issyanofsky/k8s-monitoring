@@ -33,20 +33,4 @@ spec:
           operator: "Exists"
           effect: "NoSchedule"  # This allows the pod to be scheduled on the control plane node
 
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: node-exporter
-  namespace: monitoring
-  labels:
-    k8s-app: node-exporter
-spec:
-  selector:
-    k8s-app: node-exporter  # Ensure this matches the label of the node-exporter pods
-  ports:
-    - port: 9100
-      targetPort: 9100
-      name: metrics
-
 
