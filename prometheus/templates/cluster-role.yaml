@@ -42,3 +42,8 @@ rules:
       - nodemetrics
       - podmetrics
     verbs: ["get", "list", "watch"]
+  - apiGroups: ["monitoring.coreos.com"]
+    resources:
+      - servicemonitors
+      - prometheus
+    verbs: ["get", "list", "watch"]
