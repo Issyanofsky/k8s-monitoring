@@ -39,8 +39,8 @@ rules:
     verbs: ["get", "list", "watch"]
   - apiGroups: ["metrics.k8s.il"]
     resources:
-      - nodemetrics
-      - podmetrics
+      - node
+      - pod
     verbs: ["get", "list", "watch"]
   - apiGroups: ["monitoring.coreos.com"]
     resources:
