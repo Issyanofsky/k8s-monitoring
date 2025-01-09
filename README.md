@@ -25,7 +25,12 @@ setting Prometheus Data Source in Grafana:
           not done with the yamls (autonatically) i had to run it manualy:
 
           kubectl create -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml
-          
+
+     for allowing Prometheus to scrap metrics from rhe kubletAPI i added the The flag --authentication-token-webhook=true to the
+     kubeadm-flags.env:
+          * loged to control plane (ssh).
+          * sudo nano /var/lib/kubelet/kubeadm-flags.env
+          * add a line: KUBELET_KUBEADM_ARGS="--authentication-token-webhook=true"
           
 
 # for https:
