@@ -48,9 +48,9 @@ data:
           regex: default;kubernetes;https
       - job_name: 'kube-state-metrics'
          kubernetes_sd_configs:
-           - role: endpoints
+         - role: endpoints
          static_configs:
-           - targets: ['kube-state-metrics.monitoring.svc.cluster.local:8080'] 
+         - targets: ['kube-state-metrics.monitoring.svc.cluster.local:8080'] 
       - job_name: 'kubernetes-nodes'
         scheme: https
         tls_config:
