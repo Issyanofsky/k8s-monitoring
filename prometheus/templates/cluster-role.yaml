@@ -23,6 +23,7 @@ rules:
     - horizontalpodautoscaler
     - cronjob
     - poddisruptionbudget
+    - apiservers
     verbs: ["get", "list", "watch"]
   - apiGroups: ["networking.k8s.io"]
     resources:
@@ -81,3 +82,4 @@ rules:
     - deployments
     - replicasets
     verbs: ["get", "list", "watch"]
+  
