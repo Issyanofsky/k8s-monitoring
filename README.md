@@ -31,6 +31,10 @@ setting Prometheus Data Source in Grafana:
           * loged to control plane (ssh).
           * sudo nano /var/lib/kubelet/kubeadm-flags.env
           * add a line: KUBELET_KUBEADM_ARGS="--authentication-token-webhook=true"
+          * to reload the setting:
+                    sudo systemctl daemon-reload
+                    sudo systemctl restart kubelet
+
           
 
 # for https:
