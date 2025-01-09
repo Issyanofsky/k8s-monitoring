@@ -64,7 +64,6 @@ rules:
     verbs: ["get", "list", "watch"]
   - apiGroups: ["metrics.k8s.io"]
     resources:
-      - metrics
       - nodes
       - pods
     verbs: ["get", "list", "watch"]
