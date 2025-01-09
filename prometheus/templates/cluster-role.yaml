@@ -37,3 +37,8 @@ rules:
     resources:
       - horizontalpodautoscalers
     verbs: ["get", "list", "watch"]
+  - apiGroups: ["metrics.k8s.il"]
+    resources:
+      - nodemetrics
+      - podmetrics
+    verbs: ["get", "list", "watch"]
