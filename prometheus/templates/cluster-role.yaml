@@ -14,11 +14,15 @@ rules:
     - endpoints
     - namespaces
     - persistentvolumes
+    - persistentvolumeclaims
     - configmaps
     - secrets
     - replicationcontrollers
     - resourcequotas
     - limitranges
+    - horizontalpodautoscaler
+    - cronjob
+    - poddisruptionbudget
     verbs: ["get", "list", "watch"]
   - apiGroups: ["networking.k8s.io"]
     resources:
