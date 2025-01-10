@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   labels:
     app.kubernetes.io/component: exporter
-    app.kubernetes.io/name: {{ .Values.kube-state-metrics.name }}
-    app.kubernetes.io/version: {{ .Values.kube-state-metrics.tag }}
+    app.kubernetes.io/name: {{ .Values.kubestatemetrics.name }}
+    app.kubernetes.io/version: {{ .Values.kubestatemetrics.tag }}
   name: kube-state-metrics
   namespace: kube-system
 spec:
@@ -16,12 +16,12 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/component: exporter
-        app.kubernetes.io/name: {{ .Values.kube-state-metrics.name }}
-        app.kubernetes.io/version: {{ .Values.kube-state-metrics.tag }}
+        app.kubernetes.io/name: {{ .Values.kubestatemetrics.name }}
+        app.kubernetes.io/version: {{ .Values.kubestatemetrics.tag }}
     spec:
       automountServiceAccountToken: true
       containers:
-      - image: "{{ .Values.kube-state-metrics.image }}:{{ .Values.kube-state-metrics.tag }}"
+      - image: "{{ .Values.kubestatemetrics.image }}:{{ .Values.kubestatemetrics.tag }}"
         livenessProbe:
           httpGet:
             path: /healthz
