@@ -3,8 +3,8 @@ kind: Service
 metadata:
   labels:
     app.kubernetes.io/component: exporter
-    app.kubernetes.io/name: {{ .Values.kube-state-metrics.name }}
-    app.kubernetes.io/version: {{ .Values.kube-state-metrics.tag }}
+    app.kubernetes.io/name: {{ .Values.kubestatemetrics.name }}
+    app.kubernetes.io/version: {{ .Values.kubestatemetrics.tag }}
   name: kube-state-metrics
   namespace: kube-system
 spec:
@@ -17,4 +17,4 @@ spec:
       port: 8081
       targetPort: telemetry
   selector:
-    app.kubernetes.io/name: {{ .Values.kube-state-metrics.name }}
+    app.kubernetes.io/name: {{ .Values.kubestatemetrics.name }}
