@@ -24,7 +24,7 @@ setting Prometheus Data Source in Grafana:
      installing Prometheus Operator:
           install CRD - not done with the yamls (autonatically) i had to run it manualy:
 
-          kubectl apply -f https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.79.2/bundle.yaml
+          kubectl create -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml
 
      For allowing Prometheus to scrap metrics from rhe kubletAPI i added the The flag --authentication-token-webhook=true to the
      kubeadm-flags.env:
