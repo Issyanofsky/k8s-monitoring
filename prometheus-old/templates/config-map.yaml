@@ -43,14 +43,14 @@ data:
           regex: default;kubernetes;https
       - job_name: 'node-exporter'
         kubernetes_sd_configs:
-        - role: endpoints
+        - role: node
         relabel_configs:
         - source_labels: [__meta_kubernetes_endpoints_name]
           regex: 'node-exporter'
           action: keep
-        static_configs:
-        - targets:
-          - 'node-exporter.monitoring.svc.cluster.local:9100'
+        - source_labels: [__meta_kubernetes_endpoint_port_name]
+          regex: 'http-metrics'  # Ensure this matches the port in the service (use "http-metrics" if using a named port)
+          action: keep
       - job_name: 'kubernetes-nodes'
         scheme: https
         tls_config:
