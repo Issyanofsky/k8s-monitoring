@@ -51,8 +51,6 @@ data:
         - source_labels: [__meta_kubernetes_endpoint_port_name]
           regex: 'http-metrics'  # Ensure this matches the port in the service (use "http-metrics" if using a named port)
           action: keep
-        metrics_path: /metrics
-        scheme: http
       - job_name: 'kubernetes-nodes'
         scheme: https
         tls_config:
