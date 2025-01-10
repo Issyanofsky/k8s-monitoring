@@ -17,6 +17,7 @@ spec:
         app.kubernetes.io/component: exporter
         app.kubernetes.io/name: node-exporter
     spec:
+      serviceAccountName: prometheus-sa
       containers:
         - args:
           - --path.sysfs=/host/sys
