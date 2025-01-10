@@ -5,11 +5,25 @@ metadata:
 rules:
 - apiGroups: [""]
   resources:
-  - nodes
-  - nodes/proxy
-  - services
-  - endpoints
-  - pods
+    - pods
+    - nodes
+    - nodes/proxy
+    - nodes/metrics
+    - services
+    - endpoints
+    - namespaces
+    - persistentvolumes
+    - persistentvolumeclaims
+    - configmaps
+    - secrets
+    - replicationcontrollers
+    - resourcequotas
+    - limitranges
+    - horizontalpodautoscaler
+    - cronjob
+    - poddisruptionbudget
+    - apiservers
+
   verbs: ["get", "list", "watch"]
 - apiGroups:
   - extensions
