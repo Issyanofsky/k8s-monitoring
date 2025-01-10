@@ -42,8 +42,9 @@ data:
           action: keep
           regex: default;kubernetes;https
       - job_name: 'node-exporter'
-        kubernetes_sd_configs:
-        - role: node
+        static_configs:
+          - targets:
+              - 'node-exporter-service.monitoring.svc.cluster.local:9100'
         relabel_configs:
         - source_labels: [__meta_kubernetes_endpoints_name]
           regex: 'node-exporter'
