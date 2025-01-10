@@ -28,14 +28,14 @@ data:
             - targets:
                 - "alertmanager.monitoring.svc:9093"
     scrape_configs:
-      - job_name: 'node-exporter'
+      - job_name: 'node-exporter'  # exposes the nodes in the Kubernetes cluster
         kubernetes_sd_configs:
           - role: endpoints
         relabel_configs:
           - source_labels: [__meta_kubernetes_endpoints_name]
             regex: 'node-exporter'
             action: keep
-      - job_name: 'kubernetes-apiservers'
+      - job_name: 'kubernetes-apiservers'  # scraping API servers in a Kubernetes cluster.
         kubernetes_sd_configs:
           - role: endpoints
         scheme: https
@@ -46,7 +46,7 @@ data:
           - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
             action: keep
             regex: default;kubernetes;https
-      - job_name: 'kube-state-metrics'
+      - job_name: 'kube-state-metrics'  
         kubernetes_sd_configs:
           - role: endpoints
         static_configs:
@@ -91,7 +91,7 @@ data:
           - source_labels: [__meta_kubernetes_pod_name]
             action: replace
             target_label: kubernetes_pod_name
-      - job_name: 'kubernetes-cadvisor'
+      - job_name: 'kubernetes-cadvisor'  # container level information
         scheme: https
         tls_config:
           ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
