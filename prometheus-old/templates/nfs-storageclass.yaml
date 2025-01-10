@@ -1,9 +1,0 @@
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: nfs-prometheus-class
-  namespace: monitoring
-provisioner: cluster.local/nfs
-parameters:
-  server: {{ .Values.prometheus.storage.nfsserver }} #  NFS server address
-  path: {{ .Values.prometheus.storage.nfspath }}

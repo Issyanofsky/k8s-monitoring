@@ -1,15 +1,18 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: prometheus
+  name: prometheus-service
   namespace: monitoring
-  labels:
-    app: prometheus
+  annotations:
+      prometheus.io/scrape: 'true'
+      prometheus.io/port:   '9090'
+  
 spec:
+  selector: 
+    app: prometheus-server
+  type: NodePort  
   ports:
     - port: {{ .Values.prometheus.service.port }}
-      targetPort: {{ .Values.prometheus.service.port }}
-  selector:
-    app: prometheus
-  type: {{ .Values.prometheus.service.type }}
+      targetPort: 9090
+      type: {{ .Values.prometheus.service.type }}
 

@@ -6,7 +6,7 @@ metadata:
   labels:
     app: prometheus-server
 spec:
-  replicas: 1
+  replicas: {{ .Values.prometheus.replicaCount }}
   selector:
     matchLabels:
       app: prometheus-server
@@ -17,10 +17,11 @@ spec:
     spec:
       containers:
         - name: prometheus
-          image: prom/prometheus
+          image: "{{ .Values.prometheus.image.repository }}:{{ .Values.prometheus.image.tag }}"
           args:
             - "--config.file=/etc/prometheus/prometheus.yml"
             - "--storage.tsdb.path=/prometheus/"
+            - "--web.external-url=http://{{ .Values.prometheus.domainname }}"
           ports:
             - containerPort: 9090
           volumeMounts:
@@ -35,4 +36,5 @@ spec:
             name: prometheus-server-conf
   
         - name: prometheus-storage-volume
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: prometheus-pvc
