@@ -26,6 +26,6 @@ spec:
         path: /
         pathType: Prefix
   tls:
-  - hosts:
+    - hosts:
       - prometheus.{{ .Values.prometheus.image.domainname }}  # Your Prometheus domain
       secretName: nginx-tls-secret-monitoring
