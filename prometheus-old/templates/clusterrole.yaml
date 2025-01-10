@@ -49,5 +49,5 @@ roleRef:
   name: prometheus-role
 subjects:
 - kind: ServiceAccount
-  name: prometheus-sa
+  name:  prometheus-operator
   namespace: monitoring
