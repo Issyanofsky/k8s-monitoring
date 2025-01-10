@@ -16,3 +16,7 @@ prometheus:
   service:
     type: ClusterIP
     port: 8080
+kube-state-metrics:
+  name: kube-state-metrics
+  image: bitnami/kube-state-metrics
+  tag: 2.14.0
