@@ -37,9 +37,6 @@ data:
         tls_config:
           ca_file: /etc/prometheus/secrets/ca.crt  # Adjust if necessary
         bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
-        basic_auth:
-          username: 'ec'
-          password: 'a1a1a1'
         relabel_configs:
         - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
           action: keep
