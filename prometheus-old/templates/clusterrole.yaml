@@ -8,6 +8,8 @@ rules:
     resources: 
     - pods
     - nodes
+    - nodes/proxy
+    - nodes/metrics
     - services
     - namespaces
     - persistentvolumes
