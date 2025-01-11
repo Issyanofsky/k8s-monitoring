@@ -35,9 +35,24 @@ data:
         - role: endpoints
         scheme: https
         metrics_path: /metrics
+        authorization:
+          type: Bearer
+          credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
         tls_config:
           ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+          insecure_skip_verify: true
+        follow_redirects: true
+        relabel_configs:
+        - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+          separator: ;
+          regex: default;kubernetes;https
+          replacement: $1
+          action: keep
+        - separator: ;
+          regex: (.*)
+          target_label: job
+          replacement: apiserver
+          action: replace
       - job_name: 'kubernetes-nodes'
         scheme: https
         tls_config:
