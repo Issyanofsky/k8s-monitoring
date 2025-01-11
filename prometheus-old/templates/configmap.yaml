@@ -35,8 +35,9 @@ data:
         - role: endpoints
         scheme: https
         tls_config:
-          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+          ca_file: /etc/prometheus/secrets/ca.crt  # Adjust if necessary
+          cert_file: /etc/prometheus/secrets/prometheus.crt  # Adjust if necessary
+          key_file: /etc/prometheus/secrets/prometheus.key  # Adjust if necessary
         basic_auth:
           username: ec
           password: a1a1a1
