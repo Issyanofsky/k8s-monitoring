@@ -34,7 +34,7 @@ setting Prometheus Data Source in Grafana:
          
          * created a secret for the scap to fetch with the username and password for the servers:
            
-              kubectl create secret generic my-api-credentials \
+              kubectl create secret generic server-credentials \
                  --from-literal=username='my-username' \
                  --from-literal=password='my-password' \
                  -n monitoring
