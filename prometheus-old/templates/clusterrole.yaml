@@ -16,6 +16,12 @@ rules:
   resources:
   - ingresses
   verbs: ["get", "list", "watch"]
+
+- apiGroups: ["metrics.k8s.io"]
+  resources:
+    - nodes/metrics
+    - pods/metrics
+
 - nonResourceURLs: ["/metrics"]
   verbs: ["get"]
 ---
