@@ -21,7 +21,7 @@ rules:
   resources:
     - nodes/metrics
     - pods/metrics
-
+  verbs: ["get", "list", "watch"]
 - nonResourceURLs: ["/metrics"]
   verbs: ["get"]
 ---
