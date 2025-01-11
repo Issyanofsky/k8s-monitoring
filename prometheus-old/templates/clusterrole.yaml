@@ -11,6 +11,8 @@ rules:
   - services
   - endpoints
   - pods
+  - pods/lables
+  - pods/metrics
   verbs: ["get", "list", "watch"]
 - apiGroups:
   - extensions
