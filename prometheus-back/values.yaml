@@ -15,8 +15,4 @@ prometheus:
     accessmode: "ReadWriteMany"
   service:
     type: ClusterIP
-    port: 8080
-kubestatemetrics:
-  name: kube-state-metrics
-  image: bitnami/kube-state-metrics
-  tag: 2.14.0
+    port: 9090
