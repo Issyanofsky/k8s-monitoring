@@ -34,7 +34,7 @@ data:
         scheme: https
         metrics_path: /metrics
         static_configs:
-          - targets: ['192.168.1.160:6443']
+        - targets: ['192.168.1.160:6443']
         tls_config:
           ca_file: /etc/prometheus/secrets/ca.crt  # Adjust if necessary
           cert_file: /etc/prometheus/secrets/prometheus.crt  # Adjust if necessary
