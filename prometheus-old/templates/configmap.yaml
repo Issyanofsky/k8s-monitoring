@@ -39,17 +39,6 @@ data:
         basic_auth:
           username: ec   # Replace with appropriate user if necessary
           password: a1a1a1
-        relabel_configs:
-        - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
-          separator: ;
-          regex: default;kubernetes;https
-          replacement: $1
-          action: keep
-        - separator: ;
-          regex: (.*)
-          target_label: job
-          replacement: apiserver
-          action: replace
       - job_name: 'kubernetes-nodes'
         scheme: https
         tls_config:
