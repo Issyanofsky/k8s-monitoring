@@ -4,70 +4,85 @@ metadata:
   # namespace: monitoring  
   name: prometheus-role
 rules:
-  # Permissions for core resources like pods, nodes, and services
   - apiGroups: [""]
-    resources:
-      - pods
-      - nodes
-      - nodes/proxy
-      - nodes/metrics
-      - services
-      - namespaces
-      - persistentvolumes
-      - persistentvolumeclaims
-      - configmaps
-      - secrets
-      - replicationcontrollers
-      - resourcequotas
-      - limitranges
-      - horizontalpodautoscalers
-      - cronjob
-      - poddisruptionbudget
-      - apiservers
+    resources: 
+    - pods
+    - nodes
+    - nodes/proxy
+    - nodes/metrics
+    - services
+    - namespaces
+    - persistentvolumes
+    - persistentvolumeclaims
+    - configmaps
+    - secrets
+    - replicationcontrollers
+    - resourcequotas
+    - limitranges
+    - horizontalpodautoscaler
+    - cronjob
+    - poddisruptionbudget
+    - apiservers
     verbs: ["get", "list", "watch"]
-
-  # Specific permissions for accessing `endpoints` and `apiservers`
   - apiGroups: [""]
-    resources:
-      - endpoints
-      - apiservers  # Ensure access to apiservers resource for scraping metrics
+    resources: 
+    - endpoints
     verbs: ["get", "list", "watch"]
-
-  # Other resources for networking, batch, certificates, apps, and more
   - apiGroups: ["networking.k8s.io"]
     resources:
-      - ingresses
-      - networkpolicies
+    - ingresses
+    - networkpolicies
     verbs: ["get", "list", "watch"]
-
   - apiGroups: ["batch"]
     resources:
-      - jobs
-      - cronjobs
+    - jobs
+    - cronjobs
     verbs: ["get", "list", "watch"]
-
+  - apiGroups: ["certificates.k8s.io"]
+    resources: ["certificatesigningrequests"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources:
+    - deployments
+    - statefulsets
+    - replicasets
+    - daemonsets
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["storage.k8s.io"]
+    resources:
+      - storageclasses
+      - volumeattachments
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["coordination.k8s.io"]
+    resources:
+      - leases
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["admissionregistration.k8s.io"]
+    resources:
+      - mutatingwebhookconfigurations
+      - validatingwebhookconfigurations
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["autoscaling"]
+    resources:
+      - horizontalpodautoscalers
+    verbs: ["get", "list", "watch"]
   - apiGroups: ["metrics.k8s.io"]
     resources:
       - nodes/metrics
       - pods/metrics
     verbs: ["get", "list", "watch"]
-
   - apiGroups: ["monitoring.coreos.com"]
     resources:
       - servicemonitors
       - prometheus
     verbs: ["get", "list", "watch"]
-
-  # More resources for policy and extensions
   - apiGroups: ["policy"]
-    resources:
-      - poddisruptionbudgets
+    resources: 
+    - poddisruptionbudgets
     verbs: ["get", "list", "watch"]
-
   - apiGroups: ["extensions"]
     resources:
-      - deployments
-      - replicasets
-      - ingresses
+    - deployments
+    - replicasets
+    - ingresses
     verbs: ["get", "list", "watch"]
-  
