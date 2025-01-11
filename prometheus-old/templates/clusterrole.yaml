@@ -5,7 +5,8 @@ metadata:
   name: prometheus-role
 rules:
   - apiGroups: [""]
-    resources: 
+    resources:
+    - endpoints
     - pods
     - nodes
     - nodes/proxy
