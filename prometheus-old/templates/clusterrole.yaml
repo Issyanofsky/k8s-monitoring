@@ -6,9 +6,7 @@ metadata:
 rules:
   - apiGroups: [""]
     resources: 
-    - pods
-    - nodes
-    - nodes/proxy
+    - pods/metrics
     - nodes/metrics
     - services
     - namespaces
