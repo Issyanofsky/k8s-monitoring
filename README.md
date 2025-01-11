@@ -31,15 +31,7 @@ setting Prometheus Data Source in Grafana:
          * first check if needed by executing this command:
 
                 kubectl auth can-i get nodes --as=system:serviceaccount:monitoring:prometheus-sa
-         
-         * created a secret for the scap to fetch with the username and password for the servers:
-           
-              kubectl create secret generic server-credentials \
-                 --from-literal=username='my-username' \
-                 --from-literal=password='my-password' \
-                 -n monitoring
-
-
+          
      if you get "no" then you have to add this to the kublet config:
           * loged to control plane (ssh).
           * sudo nano /var/lib/kubelet/kubeadm-flags.env
