@@ -34,6 +34,7 @@ data:
         kubernetes_sd_configs:
         - role: endpoints
         scheme: https
+        metrics_path: /metrics
         tls_config:
           ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
         basic_auth:
