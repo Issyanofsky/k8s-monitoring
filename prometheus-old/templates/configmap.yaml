@@ -37,9 +37,7 @@ data:
         metrics_path: /metrics
         tls_config:
           ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-        basic_auth:
-          username: ec   # Replace with appropriate user if necessary
-          password: a1a1a1
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
       - job_name: 'kubernetes-nodes'
         scheme: https
         tls_config:
